@@ -4,18 +4,18 @@ class SessionsController < ApplicationController
     end
 
     def create
-        user = User.find_by_credentials(
+        @user = User.find_by_credentials(
             session_params[:email],
             session_params[:password]
         )
-        
+
         if user.nil?
             # display errors
             render :new
         else
             token = user.reset_session_token!
             session[:session_token] = token
-            render json: user
+            redirect_to user_url(@user)
         end
     end
 

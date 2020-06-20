@@ -1,0 +1,20 @@
+<main>
+    <h2 class="page-name"><%= @band.name %></h2>
+    <section>
+        <h3>Albums</h3>
+        <p>Albums go here.</p>
+    </section>
+    <section>
+        <h3>Links</h3>
+        <nav>
+            <a href="<%= new_band_url %>" class="button">New Album</a>
+            <a href="<%= edit_band_url %>" class="button">Edit Band</a>
+            <form action="<%= bands_url %>" method="post" class="delete-button">
+                <%= auth_token %>
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="Destroy Band" class="button">
+            </form>
+            <a href="<%= bands_url %>" class="button">All Bands</a>
+        </nav>
+    </section>
+</main>

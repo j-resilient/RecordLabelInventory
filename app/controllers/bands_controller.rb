@@ -45,7 +45,6 @@ class BandsController < ApplicationController
             flash.now[:errors] = band.errors.full_messages
             redirect_to band_url(band)
         end
-
     end
 
     private

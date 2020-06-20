@@ -1,19 +1,21 @@
 <main>
-    <h1>MUSIC APP</h1>
-    <h2>NEW USER</h2>
+    <h2 class="page-name">NEW USER</h2>
+    <%= link_to 'Go to Sign-In!', new_session_url, class: "button" %>
 
-    <form action="<%= users_url %>" method="post">
-        <input type="hidden" 
-            name="authenticity_token" 
-            value="<%= form_authenticity_token %>">
+    <form action="<%= users_url %>" method="post" class="flex-column">
+        <%= auth_token %>
 
-        <label for="email">Email</label>
-        <input type="text" id="email" name="user[email]"><br><br>
+        <div class="flex">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="user[email]">
+        </div>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="user[password]"><br><br>
+        <div class="flex">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="user[password]">
+        </div>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="button submit">
     </form>
 
 </main>

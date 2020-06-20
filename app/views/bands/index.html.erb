@@ -1,0 +1,16 @@
+<main>
+    <section>
+        <h2 class="page-name">Bands</h2>
+        <ul>
+            <% Band.all.each do |b| %>
+                <li class="big-button"> 
+                    <%= link_to b.name, band_url(b) %> 
+                </li>
+            <% end %>
+        </ul>
+    </section>
+    <section>
+        <h3>Links</h3>
+        <%= link_to 'New Band', new_band_url, class: "button" %>
+    </section>
+</main>

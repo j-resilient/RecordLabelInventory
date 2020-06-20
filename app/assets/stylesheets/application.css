@@ -25,6 +25,9 @@
 
     background: transparent;
 }
+li {
+    list-style-type: none;
+}
 
 * {
     box-sizing: border-box;
@@ -36,6 +39,7 @@ body {
     text-decoration: none;
     background-color: #111;
     --yellow: #FDDB61;
+    --orange: orange;
     --dark-blue: dodgerblue;
     --light-blue: skyblue;
     --electric-blue: #39BAAC;
@@ -50,6 +54,9 @@ body {
     height: 100vh;
     padding: 30px;
 }
+main, section {
+    width: 100%;
+}
 .flex-column {
     display: flex;
     flex-direction: column;
@@ -59,6 +66,9 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+}
+.sign-out {
+    justify-content: flex-end;
 }
 .logo {
     font-size: 75px;
@@ -74,7 +84,7 @@ body {
     font-family: 'Bungee Inline', cursive;
 }
 .button {
-    display: block;
+    display: inline-block;
     padding: 10px;
     border-radius: 5px;
     border: none;
@@ -88,6 +98,31 @@ body {
     cursor: pointer;
     transition: .5s;
 }
+ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+}
+.big-button {
+    background-color: var(--yellow);
+    height: 100px;
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
+    width: calc(33% - 40px);
+    text-align: center;
+    display: flex;
+}
+.big-button a {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    vertical-align: center;
+}
+.big-button:hover {
+    background-color: var(--orange);
+}
 .submit {
     align-self: flex-end;
 }
@@ -100,4 +135,7 @@ form {
 }
 div {
     width: inherit;
+}
+.delete-button {
+    display: inline;
 }

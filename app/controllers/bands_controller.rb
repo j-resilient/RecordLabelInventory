@@ -38,7 +38,14 @@ class BandsController < ApplicationController
     end
 
     def destroy
-        render json: "destroy"
+        band = Band.find_by(id: params[:id])
+        if band.destroy
+            bands_url
+        else
+            flash.now[:errors] = band.errors.full_messages
+            redirect_to band_url(band)
+        end
+
     end
 
     private

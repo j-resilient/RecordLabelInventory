@@ -23,11 +23,20 @@ class BandsController < ApplicationController
     end
 
     def edit
-        render json: "edit"
+        @band = Band.find_by(id: params[:id])
+        render :edit
     end
 
     def update
-        render json: "update"
+        @band = Band.find_by(id: params[:id])
+        if @band.update_attributes(bands_params)
+            # redirect_to band_url(@band)
+            render json: @band
+        else
+            flash.now[:errors] = @band.errors.full_messages
+            # render :edit
+            render json: @band
+        end
     end
 
     def destroy

@@ -30,12 +30,10 @@ class BandsController < ApplicationController
     def update
         @band = Band.find_by(id: params[:id])
         if @band.update_attributes(bands_params)
-            # redirect_to band_url(@band)
-            render json: @band
+            redirect_to band_url(@band)
         else
             flash.now[:errors] = @band.errors.full_messages
-            # render :edit
-            render json: @band
+            render :edit
         end
     end
 

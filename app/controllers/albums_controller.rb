@@ -34,6 +34,11 @@ class AlbumsController < ApplicationController
         redirect_to albums_url
     end
 
+    def show
+        @album = Album.find_by(id: params[:id])
+        render json: @album
+    end
+
     private
     def album_params
         params.require(:album).permit(:title, :year, :studio, :band_id)

@@ -12,7 +12,7 @@
 #
 class Album < ApplicationRecord
     validates :title, :band_id, presence: true
-    validates :studio, inclusion: { in: %w(true false) }
+    validates :studio, inclusion: { in: [true, false] }
 
     belongs_to :band,
         primary_key: :id,

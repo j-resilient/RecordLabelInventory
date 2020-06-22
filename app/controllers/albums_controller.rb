@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
     def new
-        render json: params
+        @band = Band.find_by(id: params[:band_id])
+        render :new
     end
 
     def create

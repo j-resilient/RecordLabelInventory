@@ -36,7 +36,7 @@ class AlbumsController < ApplicationController
 
     def show
         @album = Album.find_by(id: params[:id])
-        render json: @album
+        render :show
     end
 
     private

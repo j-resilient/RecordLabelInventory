@@ -2,17 +2,15 @@ class TracksController < ApplicationController
     def new
         @album = Album.find_by(id: params[:album_id])
         render :new
-        # render json: "new"
     end
 
     def create
         track = Track.new(track_params)
-        track.album_id = params[:album_id]
         if track.save
-            render json: track
-            # redirect_to track_url(track)
+            redirect_to track_url(track)
         else
             flash.now[:errors] = track.errors.full_messages
+            @album = Album.find_by(id: track_params[:album_id])
             render :new
         end
     end
@@ -45,6 +43,6 @@ class TracksController < ApplicationController
 
     private
     def track_params
-        params.require(:track).permit(:title, :ord, :lyrics, :bonus)
+        params.require(:track).permit(:title, :ord, :lyrics, :bonus, :album_id)
     end
 end

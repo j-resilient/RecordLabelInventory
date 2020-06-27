@@ -16,11 +16,11 @@
         <h1 class="logo">Music App</h1>
 
         <% if current_user %>
-          <div class="flex">
+          <div class="top-bar">
             <%= link_to 'Take me Home', bands_url, class: "button" %>
-            <div class="flex sign-out">
-              <p>Logged in as: <%= current_user.email %></p>
-              <form action="<%= session_url %>" method="post">
+            <div>
+              <p class="logged" id="logged-p">Logged in as: <%= current_user.email %></p>
+              <form action="<%= session_url %>" method="post" class="logged">
                 <%= auth_token %>
                 <input type="hidden" name="_method" value="delete">
                 <input type="submit" value="Sign Out" class="button">

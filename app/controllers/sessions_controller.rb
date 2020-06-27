@@ -16,12 +16,13 @@ class SessionsController < ApplicationController
             render :new
         else
             login!(user)
-            redirect_to user_url(user)
+            redirect_to bands_url
         end
     end
 
     def destroy
         logout
+        redirect_to new_session_url
     end
 
     private

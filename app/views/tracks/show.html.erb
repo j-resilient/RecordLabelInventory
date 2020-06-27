@@ -1,0 +1,28 @@
+<main>
+    <h2 class="page-name"><%= @track.title %></h2>
+    <section>
+        <% unless @track.lyrics.nil? %>
+            <p><%= @track.lyrics %></p>
+        <% end %>
+    </section>
+    <section>
+        <h3>New Note</h3>
+        <p>New note form here</p>
+    </section>
+    <section>
+        <h3>Notes</h3>
+        <p>Notes here</p>
+    </section>
+    <section>
+        <h3>Links</h3>
+        <nav>
+            <%= link_to 'Edit Track', edit_track_url(@track), class: "button" %>
+            <form action="<%= tracks_url %>" method="post" class="delete-button">
+                <%= auth_token %>
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="Destroy Track" class="button">
+            </form>
+            <%= link_to @track.album.title, album_url(@track.album), class: "button" %>
+        </nav>
+    </section>
+</main>

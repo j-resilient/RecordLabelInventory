@@ -17,7 +17,7 @@
                 <input type="hidden" name="_method" value="delete">
                 <input type="submit" value="Destroy Album" class="button">
             </form>
-            <a href="<%= album_url(@album) %>" class="button">Back to <%= @album.band.name %></a>
+            <a href="<%= band_url(@album.band) %>" class="button">Back to <%= @album.band.name %></a>
         </nav>
     </section>
 </main>

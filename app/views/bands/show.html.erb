@@ -2,7 +2,9 @@
     <h2 class="page-name"><%= @band.name %></h2>
     <section>
         <h3>Albums</h3>
-        <p>Albums go here.</p>
+        <% @band.albums.each do |album| %>
+            <li> <%= link_to album.title, album_url(album) %> </li>
+        <% end %>
     </section>
     <section>
         <h3>Links</h3>

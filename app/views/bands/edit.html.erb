@@ -1,12 +1,1 @@
-<main>
-    <h2 class="page-name"><%= @band.name %></h2>
-    <form action="<%= band_url(@band) %>" method="post" class="flex-column">
-        <%= auth_token %>
-        <input type="hidden" name="_method" value="put">
-        <div class="flex">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="band[name]" value="<%= @band.name %>">
-        </div>
-        <input type="submit" value="Submit Query" class="button submit">
-    </form>
-</main>
+<%= render 'form' %>

@@ -1,0 +1,21 @@
+<% edit = (@band.persisted? ? true : false) %>
+<% action = (edit ? band_url(@band) : bands_url) %>
+
+<main>
+    <h2 class="page-name">
+        <%= edit ? "Edit #{@band.name}" : "New Band!" %>
+    </h2>
+
+    <form action="<%= action %>" method="post" class="flex-column">
+        <%= auth_token %>
+        <% if edit %>
+            <input type="hidden" name="_method" value="put">
+        <% end %>
+
+        <div class="flex">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="band[name]" value="<%= @band.name %>">
+        </div>
+        <input type="submit" value="Submit Query" class="button submit">
+    </form>
+</main>

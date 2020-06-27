@@ -1,6 +1,7 @@
 class TracksController < ApplicationController
     def new
         @album = Album.find_by(id: params[:album_id])
+        @track = Track.new
         render :new
     end
 
@@ -17,13 +18,14 @@ class TracksController < ApplicationController
 
     def edit
         @track = Track.find_by(id: params[:id])
+        @album = @track.album
         render :edit
     end
     
     def update
         @track = Track.find_by(id: params[:id])
         if @track.update_attributes(track_params)
-            redirect_to track_url(track)
+            redirect_to track_url(@track)
         else
             flash.now[:errors] = @track.errors.full_messages
             render :edit

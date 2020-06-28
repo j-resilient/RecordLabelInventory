@@ -153,8 +153,10 @@ div {
 .logged {
     width: auto;
 }
+p {
+    color: white;
+}
 #logged-p {
     padding-right: 20px;
     padding-top: 10px;
-    color: white;
 }

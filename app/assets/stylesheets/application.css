@@ -153,7 +153,7 @@ div {
 .logged {
     width: auto;
 }
-p {
+p, pre {
     color: white;
 }
 #logged-p {

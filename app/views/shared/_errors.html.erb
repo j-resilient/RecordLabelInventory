@@ -1,0 +1,7 @@
+<% unless flash.now[:errors].nil? %>
+    <div>
+        <% flash.now[:errors].each do |error| %>
+            <p><%= error %></p>
+        <% end %>
+    </div>
+<% end %>

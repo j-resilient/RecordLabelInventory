@@ -1,7 +1,9 @@
-<form action="<%= notes_url %>" method="post">
+<form action="<%= notes_url %>" method="post" class="flex-column">
     <%= auth_token %>
-    <label for="note">Content</label>
-    <textarea name="notes[note]" id="note" cols="30" rows="10"></textarea>
+    <div class="flex">
+        <label for="note">Content</label>
+        <textarea name="notes[note]" id="note" cols="30" rows="10"></textarea>
+    </div>
     <input type="hidden" name="notes[track_id]" value="<%= track.id %>">
-    <input type="submit" name="Submit Query" class="button submit-button">
+    <input type="submit" value="Submit Query" class="button submit">
 </form>

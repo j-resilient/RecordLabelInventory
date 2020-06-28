@@ -7,11 +7,10 @@
     </section>
     <section>
         <h3>New Note</h3>
-        <p>New note form here</p>
+        <%= render '/notes/form', track: @track %>
     </section>
     <section>
-        <h3>Notes</h3>
-        <p>Notes here</p>
+        <%= render '/notes/note', notes: @track.notes %>
     </section>
     <section>
         <h3>Links</h3>

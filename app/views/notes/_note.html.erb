@@ -1,0 +1,7 @@
+<h3>Notes</h3>
+<% notes.each do |n| %>
+    <div>
+        <p><%= n.note %></p>
+        <p><%= n.user.email %></p>
+    </div>
+<% end %>

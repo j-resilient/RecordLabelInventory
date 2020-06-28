@@ -2,6 +2,15 @@
 <% notes.each do |n| %>
     <div>
         <p><%= n.note %></p>
-        <p><%= n.user.email %></p>
+        <div class="flex">
+            <p><%= n.user.email %></p>
+            <% if current_user.id == n.user_id %>
+                <form action="<%= note_url(n) %>" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <%= auth_token %>
+                    <input type="submit" value="Destroy Note" class="button">
+                </form>
+            <% end %>
+        </div>
     </div>
 <% end %>

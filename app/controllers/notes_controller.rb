@@ -10,6 +10,13 @@ class NotesController < ApplicationController
         end
     end
 
+    def destroy
+        n = Note.find_by(id: params[:id])
+        track = Track.find_by(id: n.track_id)
+        n.destroy
+        redirect_to track_url(track)
+    end
+
     private
     def notes_params
         params.require(:notes).permit(:note, :track_id)
